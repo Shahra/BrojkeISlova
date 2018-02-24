@@ -38,6 +38,7 @@
       this.rjesenjeTextBox.Name = "rjesenjeTextBox";
       this.rjesenjeTextBox.Size = new System.Drawing.Size(903, 62);
       this.rjesenjeTextBox.TabIndex = 2;
+      this.rjesenjeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
       // 
       // remainingTimeProgressBar
       // 

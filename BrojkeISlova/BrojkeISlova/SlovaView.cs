@@ -75,7 +75,7 @@ namespace BrojkeISlova {
     }
 
     private void ResizeRemainingTime() {
-      UtilityFunctions.PositionProgressBar(remainingTimeProgressBar, 0.2, 0.4, 0.6, 0.15, ClientSize);
+      UtilityFunctions.PositionProgressBar(remainingTimeProgressBar, 0.2, 0.45, 0.6, 0.05, ClientSize);
     }
 
     private void timer_Tick(object sender, EventArgs e) {
@@ -102,6 +102,7 @@ namespace BrojkeISlova {
       if (!IsWordPossible(rjesenjeTextBox.Text)) {
         MessageBox.Show("Vaša riječ je neispravna budući da ste koristili nedopuštena slova.\n" + "Najbolje rješenje: " + "placeholder");
       }
+      this.Close();
     }
 
     private void stopButton_Click(object sender, EventArgs e) {
