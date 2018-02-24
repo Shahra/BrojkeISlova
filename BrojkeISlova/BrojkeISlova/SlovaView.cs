@@ -21,7 +21,7 @@ namespace BrojkeISlova {
     public SlovaView(int brojSlova = 15) {
       InitializeComponent();
       this.brojSlova = brojSlova;
-      WindowState = FormWindowState.Maximized;
+      CenterToScreen();
     }
 
     private void SlovaView_Load(object sender, EventArgs e) {

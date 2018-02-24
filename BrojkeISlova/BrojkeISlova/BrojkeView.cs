@@ -23,7 +23,7 @@ namespace BrojkeISlova {
       InitializeComponent();
       this.brojBrojki = brojBrojki;
       this.dopusteneOperacije = dopusteneOperacije;
-      WindowState = FormWindowState.Maximized;
+      CenterToScreen();
     }
 
     private void BrojkeView_Load(object sender, EventArgs e) {

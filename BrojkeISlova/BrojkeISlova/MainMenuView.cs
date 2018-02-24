@@ -18,12 +18,12 @@ namespace BrojkeISlova {
 
     public MainMenuView(string dozvoljeneOperacije = "+-*/^", int brojBrojki = 10, int brojSlova = 15, int brojIgara = 1, string nizIgara = "B") {
       InitializeComponent();
-      WindowState = FormWindowState.Maximized;
       this.dozvoljeneOperacije = dozvoljeneOperacije;
       this.brojBrojki = brojBrojki;
       this.brojSlova = brojSlova;
       this.brojIgara = brojIgara;
       this.nizIgara = nizIgara;
+      CenterToScreen();
     }
 
     private void MainMenuView_Load(object sender, EventArgs e) {
