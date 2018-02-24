@@ -51,6 +51,12 @@
     <Compile Include="SettingsView.Designer.cs">
       <DependentUpon>SettingsView.cs</DependentUpon>
     </Compile>
+    <Compile Include="SlovaView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SlovaView.Designer.cs">
+      <DependentUpon>SlovaView.cs</DependentUpon>
+    </Compile>
     <Compile Include="UtilityFunctions.cs" />
     <Compile Include="MainMenuView.cs">
       <SubType>Form</SubType>
@@ -74,6 +80,9 @@
     </Compile>
     <EmbeddedResource Include="SettingsView.resx">
       <DependentUpon>SettingsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SlovaView.resx">
+      <DependentUpon>SlovaView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
