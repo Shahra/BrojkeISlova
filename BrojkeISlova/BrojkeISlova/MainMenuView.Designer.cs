@@ -35,6 +35,7 @@
       this.igrajButton.TabIndex = 0;
       this.igrajButton.Text = "IGRAJ";
       this.igrajButton.UseVisualStyleBackColor = true;
+      this.igrajButton.Click += new System.EventHandler(this.igrajButton_Click);
       // 
       // postavkeButton
       // 

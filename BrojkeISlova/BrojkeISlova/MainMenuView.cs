@@ -25,5 +25,12 @@ namespace BrojkeISlova {
       UtilityFunctions.PositionButton(igrajButton, 0.2, 0.2, 0.6, 0.2, ClientSize);
       UtilityFunctions.PositionButton(postavkeButton, 0.2, 0.6, 0.6, 0.2, ClientSize);
     }
+
+    private void igrajButton_Click(object sender, EventArgs e) {
+      this.Hide();
+      SlovaView slovaView = new SlovaView();
+      slovaView.ShowDialog();
+      this.Show();
+    }
   }
 }

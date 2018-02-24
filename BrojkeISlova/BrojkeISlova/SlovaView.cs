@@ -22,6 +22,7 @@ namespace BrojkeISlova {
     public SlovaView(int brojSlova = 15) {
       InitializeComponent();
       this.brojSlova = brojSlova;
+      WindowState = FormWindowState.Maximized;
     }
 
     private void SlovaView_Load(object sender, EventArgs e) {
@@ -106,7 +107,9 @@ namespace BrojkeISlova {
 
     private void stopButton_Click(object sender, EventArgs e) {
       ++trenutnoSlovo;
-      AddSlovo(slova[trenutnoSlovo - 1].Text);
+      if (trenutnoSlovo - 1 < brojSlova) {
+        AddSlovo(slova[trenutnoSlovo - 1].Text);
+      }
     }
 
     private void gotovButton_Click(object sender, EventArgs e) {
