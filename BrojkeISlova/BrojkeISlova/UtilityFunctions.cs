@@ -55,5 +55,12 @@ namespace BrojkeISlova {
       t.Width = width;
       t.Font = UtilityFunctions.GetFontForTextBoxHeight(height, t.Font);
     }
+
+    public static void PositionProgressBar(ProgressBar pb, double left, double top, double width, double height, Size size) {
+      pb.Left = (int)(size.Width * left);
+      pb.Top = (int)(size.Height * top);
+      pb.Width = (int)(size.Width * width);
+      pb.Height = (int)(size.Height * height);
+    }
   }
 }
