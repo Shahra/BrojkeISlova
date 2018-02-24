@@ -13,7 +13,7 @@ namespace BrojkeISlova {
     public MainMenuView() {
       InitializeComponent();
       //FormBorderStyle = FormBorderStyle.None;
-      //WindowState = FormWindowState.Maximized;
+      WindowState = FormWindowState.Maximized;
     }
 
     private void MainMenuView_Load(object sender, EventArgs e) {
@@ -28,6 +28,8 @@ namespace BrojkeISlova {
 
     private void igrajButton_Click(object sender, EventArgs e) {
       this.Hide();
+      BrojkeView brojkeView = new BrojkeView();
+      brojkeView.ShowDialog();
       SlovaView slovaView = new SlovaView();
       slovaView.ShowDialog();
       this.Show();
