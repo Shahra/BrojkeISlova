@@ -42,11 +42,25 @@ namespace BrojkeISlova {
 
       return fnt;
     }
-    public static void PositionButton(Button b, double left, double top, double width, double height, Size size ) {
+    public static void PositionButton(Button b, double left, double top, double width, double height, Size size) {
       b.Left = (int)(size.Width * left);
       b.Top = (int)(size.Height * top);
       b.Width = (int)(size.Width * width);
       b.Height = (int)(size.Height * height);
+    }
+
+    public static void PositionTextBox(TextBox t, int left, int top, int width, int height) {
+      t.Left = left;
+      t.Top = top;
+      t.Width = width;
+      t.Font = UtilityFunctions.GetFontForTextBoxHeight(height, t.Font);
+    }
+
+    public static void PositionProgressBar(ProgressBar pb, double left, double top, double width, double height, Size size) {
+      pb.Left = (int)(size.Width * left);
+      pb.Top = (int)(size.Height * top);
+      pb.Width = (int)(size.Width * width);
+      pb.Height = (int)(size.Height * height);
     }
   }
 }
