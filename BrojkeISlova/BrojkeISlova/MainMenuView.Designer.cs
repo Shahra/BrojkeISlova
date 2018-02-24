@@ -45,6 +45,7 @@
       this.postavkeButton.TabIndex = 1;
       this.postavkeButton.Text = "POSTAVKE";
       this.postavkeButton.UseVisualStyleBackColor = true;
+      this.postavkeButton.Click += new System.EventHandler(this.postavkeButton_Click);
       // 
       // MainMenuView
       // 

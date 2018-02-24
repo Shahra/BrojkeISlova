@@ -10,10 +10,20 @@ using System.Windows.Forms;
 
 namespace BrojkeISlova {
   public partial class MainMenuView : Form {
-    public MainMenuView() {
+    public string dozvoljeneOperacije;
+    public int brojBrojki;
+    public int brojSlova;
+    public int brojIgara;
+    public string nizIgara;
+
+    public MainMenuView(string dozvoljeneOperacije = "+-*/^", int brojBrojki = 10, int brojSlova = 15, int brojIgara = 1, string nizIgara = "B") {
       InitializeComponent();
-      //FormBorderStyle = FormBorderStyle.None;
       WindowState = FormWindowState.Maximized;
+      this.dozvoljeneOperacije = dozvoljeneOperacije;
+      this.brojBrojki = brojBrojki;
+      this.brojSlova = brojSlova;
+      this.brojIgara = brojIgara;
+      this.nizIgara = nizIgara;
     }
 
     private void MainMenuView_Load(object sender, EventArgs e) {
@@ -27,12 +37,28 @@ namespace BrojkeISlova {
     }
 
     private void igrajButton_Click(object sender, EventArgs e) {
-      this.Hide();
-      BrojkeView brojkeView = new BrojkeView();
-      brojkeView.ShowDialog();
-      SlovaView slovaView = new SlovaView();
-      slovaView.ShowDialog();
-      this.Show();
+      Hide();
+      BrojkeView brojkeView;
+      SlovaView slovaView;
+      for (int i = 0; i < nizIgara.Length; i++) {
+        if(nizIgara[i] == 'B') {
+          brojkeView = new BrojkeView(brojBrojki, dozvoljeneOperacije);
+          brojkeView.ShowDialog();
+        }
+        else {
+          slovaView = new SlovaView(brojSlova);
+          slovaView.ShowDialog();
+        }
+      }
+      Show();
+    }
+
+    private void postavkeButton_Click(object sender, EventArgs e) {
+      Hide();
+      SettingsView settingsView = new SettingsView(dozvoljeneOperacije, brojBrojki, brojSlova, brojIgara, nizIgara);
+      settingsView.Owner = this;
+      settingsView.ShowDialog();
+      Show();
     }
   }
 }
