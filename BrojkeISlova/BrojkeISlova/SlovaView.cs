@@ -16,7 +16,6 @@ namespace BrojkeISlova {
     String[] mogucaSlova = { "a", "b", "c", "č", "ć", "d", "đ", "dž", "e", "f", "g", "h", "i", "j", "k", "l", "lj", "m", "n", "nj", "o", "p", "r", "s", "š", "t", "u", "v", "z", "ž" };
     int[] brojPojavljivanjaZadanihSlova = new int[30];
     int trenutnoSlovo = 0;
-    int remainingTime = 1200;
     int offset = 2;
 
     public SlovaView(int brojSlova = 15) {
