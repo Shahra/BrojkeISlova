@@ -47,7 +47,7 @@
       // plusCheckBox
       // 
       this.plusCheckBox.AutoSize = true;
-      this.plusCheckBox.Location = new System.Drawing.Point(30, 48);
+      this.plusCheckBox.Location = new System.Drawing.Point(30, 60);
       this.plusCheckBox.Name = "plusCheckBox";
       this.plusCheckBox.Size = new System.Drawing.Size(32, 17);
       this.plusCheckBox.TabIndex = 0;
@@ -57,7 +57,7 @@
       // minusCheckBox
       // 
       this.minusCheckBox.AutoSize = true;
-      this.minusCheckBox.Location = new System.Drawing.Point(99, 48);
+      this.minusCheckBox.Location = new System.Drawing.Point(100, 60);
       this.minusCheckBox.Name = "minusCheckBox";
       this.minusCheckBox.Size = new System.Drawing.Size(29, 17);
       this.minusCheckBox.TabIndex = 0;
@@ -67,7 +67,7 @@
       // multiplyCheckBox
       // 
       this.multiplyCheckBox.AutoSize = true;
-      this.multiplyCheckBox.Location = new System.Drawing.Point(172, 48);
+      this.multiplyCheckBox.Location = new System.Drawing.Point(170, 60);
       this.multiplyCheckBox.Name = "multiplyCheckBox";
       this.multiplyCheckBox.Size = new System.Drawing.Size(30, 17);
       this.multiplyCheckBox.TabIndex = 0;
@@ -77,7 +77,7 @@
       // divideCheckBox
       // 
       this.divideCheckBox.AutoSize = true;
-      this.divideCheckBox.Location = new System.Drawing.Point(246, 48);
+      this.divideCheckBox.Location = new System.Drawing.Point(240, 60);
       this.divideCheckBox.Name = "divideCheckBox";
       this.divideCheckBox.Size = new System.Drawing.Size(31, 17);
       this.divideCheckBox.TabIndex = 0;
@@ -87,7 +87,7 @@
       // powerCheckBox
       // 
       this.powerCheckBox.AutoSize = true;
-      this.powerCheckBox.Location = new System.Drawing.Point(323, 48);
+      this.powerCheckBox.Location = new System.Drawing.Point(310, 60);
       this.powerCheckBox.Name = "powerCheckBox";
       this.powerCheckBox.Size = new System.Drawing.Size(32, 17);
       this.powerCheckBox.TabIndex = 0;
@@ -106,7 +106,7 @@
       // 
       // brojBrojkiNumUpDown
       // 
-      this.brojBrojkiNumUpDown.Location = new System.Drawing.Point(99, 97);
+      this.brojBrojkiNumUpDown.Location = new System.Drawing.Point(99, 98);
       this.brojBrojkiNumUpDown.Maximum = new decimal(new int[] {
             10,
             0,
@@ -129,7 +129,7 @@
       // brojBrojkiLabel
       // 
       this.brojBrojkiLabel.AutoSize = true;
-      this.brojBrojkiLabel.Location = new System.Drawing.Point(27, 99);
+      this.brojBrojkiLabel.Location = new System.Drawing.Point(27, 100);
       this.brojBrojkiLabel.Name = "brojBrojkiLabel";
       this.brojBrojkiLabel.Size = new System.Drawing.Size(56, 13);
       this.brojBrojkiLabel.TabIndex = 1;
@@ -139,7 +139,7 @@
       // 
       this.slovaLabel.AutoSize = true;
       this.slovaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-      this.slovaLabel.Location = new System.Drawing.Point(12, 142);
+      this.slovaLabel.Location = new System.Drawing.Point(12, 140);
       this.slovaLabel.Name = "slovaLabel";
       this.slovaLabel.Size = new System.Drawing.Size(71, 25);
       this.slovaLabel.TabIndex = 1;
@@ -148,7 +148,7 @@
       // brojSlovaLabel
       // 
       this.brojSlovaLabel.AutoSize = true;
-      this.brojSlovaLabel.Location = new System.Drawing.Point(27, 192);
+      this.brojSlovaLabel.Location = new System.Drawing.Point(27, 180);
       this.brojSlovaLabel.Name = "brojSlovaLabel";
       this.brojSlovaLabel.Size = new System.Drawing.Size(56, 13);
       this.brojSlovaLabel.TabIndex = 1;
@@ -156,7 +156,7 @@
       // 
       // brojSlovaNumUpDown
       // 
-      this.brojSlovaNumUpDown.Location = new System.Drawing.Point(99, 190);
+      this.brojSlovaNumUpDown.Location = new System.Drawing.Point(99, 178);
       this.brojSlovaNumUpDown.Maximum = new decimal(new int[] {
             15,
             0,
@@ -180,7 +180,7 @@
       // 
       this.nizLabel.AutoSize = true;
       this.nizLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-      this.nizLabel.Location = new System.Drawing.Point(12, 235);
+      this.nizLabel.Location = new System.Drawing.Point(12, 220);
       this.nizLabel.Name = "nizLabel";
       this.nizLabel.Size = new System.Drawing.Size(46, 25);
       this.nizLabel.TabIndex = 1;
@@ -189,7 +189,7 @@
       // brojIgaraLabel
       // 
       this.brojIgaraLabel.AutoSize = true;
-      this.brojIgaraLabel.Location = new System.Drawing.Point(27, 284);
+      this.brojIgaraLabel.Location = new System.Drawing.Point(27, 260);
       this.brojIgaraLabel.Name = "brojIgaraLabel";
       this.brojIgaraLabel.Size = new System.Drawing.Size(54, 13);
       this.brojIgaraLabel.TabIndex = 1;
@@ -197,7 +197,7 @@
       // 
       // brojIgaraNumUpDown
       // 
-      this.brojIgaraNumUpDown.Location = new System.Drawing.Point(99, 282);
+      this.brojIgaraNumUpDown.Location = new System.Drawing.Point(99, 258);
       this.brojIgaraNumUpDown.Maximum = new decimal(new int[] {
             10,
             0,
@@ -220,27 +220,29 @@
       // 
       // odustaniButton
       // 
-      this.odustaniButton.Location = new System.Drawing.Point(461, 534);
+      this.odustaniButton.Location = new System.Drawing.Point(407, 485);
       this.odustaniButton.Name = "odustaniButton";
       this.odustaniButton.Size = new System.Drawing.Size(75, 23);
       this.odustaniButton.TabIndex = 3;
       this.odustaniButton.Text = "Odustani";
       this.odustaniButton.UseVisualStyleBackColor = true;
+      this.odustaniButton.Click += new System.EventHandler(this.odustaniButton_Click);
       // 
       // SpremiButton
       // 
-      this.SpremiButton.Location = new System.Drawing.Point(570, 534);
+      this.SpremiButton.Location = new System.Drawing.Point(516, 485);
       this.SpremiButton.Name = "SpremiButton";
       this.SpremiButton.Size = new System.Drawing.Size(75, 23);
       this.SpremiButton.TabIndex = 3;
       this.SpremiButton.Text = "Spremi";
       this.SpremiButton.UseVisualStyleBackColor = true;
+      this.SpremiButton.Click += new System.EventHandler(this.SpremiButton_Click);
       // 
       // SettingsView
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(657, 569);
+      this.ClientSize = new System.Drawing.Size(646, 561);
       this.Controls.Add(this.SpremiButton);
       this.Controls.Add(this.odustaniButton);
       this.Controls.Add(this.brojIgaraNumUpDown);
@@ -260,6 +262,7 @@
       this.Name = "SettingsView";
       this.Text = "SettingsView";
       this.Load += new System.EventHandler(this.SettingsView_Load);
+      this.Resize += new System.EventHandler(this.SettingsView_Resize);
       ((System.ComponentModel.ISupportInitialize)(this.brojBrojkiNumUpDown)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.brojSlovaNumUpDown)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.brojIgaraNumUpDown)).EndInit();

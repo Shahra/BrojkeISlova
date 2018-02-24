@@ -22,6 +22,7 @@ namespace BrojkeISlova {
 
     public SettingsView(String dozvoljeneOperacije = "+-*/^", int brojBrojki = 4, int brojSlova = 5, int brojIgara = 1, String nizIgara = "B") {
       InitializeComponent();
+      CenterToScreen();
       this.dozvoljeneOperacije = dozvoljeneOperacije;
       this.brojBrojki = brojBrojki;
       this.brojSlova = brojSlova;
@@ -49,7 +50,15 @@ namespace BrojkeISlova {
         powerCheckBox.Checked = true;
       }
       InitializeRadioGroup(0);
+      ResizeOdustaniButton();
+      ResizeSpremiButton();
     }
+
+    private void SettingsView_Resize(object sender, EventArgs e) {
+      ResizeOdustaniButton();
+      ResizeSpremiButton();
+    }
+
 
     private void InitializeRadioGroup(int i) {
       brojkaRadioButton[i] = new RadioButton();
@@ -66,7 +75,7 @@ namespace BrojkeISlova {
       igraPanel[i] = new Panel();
       igraPanel[i].Controls.Add(brojkaRadioButton[i]);
       igraPanel[i].Controls.Add(slovoRadioButton[i]);
-      igraPanel[i].Location = new Point(19 + i * 43, 335);
+      igraPanel[i].Location = new Point(19 + i * 43, 300);
       igraPanel[i].Size = new Size(37, 49);
 
       if (i < nizIgara.Length) {
@@ -92,6 +101,61 @@ namespace BrojkeISlova {
           igraPanel[i].Hide();
         }
       }
+    }
+
+    private void ResizeOdustaniButton() {
+      UtilityFunctions.PositionButton(odustaniButton, 0.55, 0.85, 0.2, 0.1, ClientSize);
+    }
+
+    private void ResizeSpremiButton() {
+      UtilityFunctions.PositionButton(SpremiButton, 0.75, 0.85, 0.2, 0.1, ClientSize);
+    }
+
+    private void odustaniButton_Click(object sender, EventArgs e) {
+      Close();
+    }
+
+    private void SpremiButton_Click(object sender, EventArgs e) {
+      MainMenuView mmv = (MainMenuView)Owner;
+      mmv.dozvoljeneOperacije = GetDozvoljeneOperacije();
+      mmv.brojBrojki = (int)brojBrojkiNumUpDown.Value;
+      mmv.brojSlova = (int)brojSlovaNumUpDown.Value;
+      mmv.brojIgara = (int)brojIgaraNumUpDown.Value;
+      mmv.nizIgara = GetNizIgara();
+      Close();
+    }
+
+    private string GetDozvoljeneOperacije() {
+      StringBuilder dozvoljeneOperacije = new StringBuilder("");
+      if (plusCheckBox.Checked) {
+        dozvoljeneOperacije.Append("+");
+      }
+      if (minusCheckBox.Checked) {
+        dozvoljeneOperacije.Append("-");
+      }
+      if (multiplyCheckBox.Checked) {
+        dozvoljeneOperacije.Append("*");
+      }
+      if (divideCheckBox.Checked) {
+        dozvoljeneOperacije.Append("/");
+      }
+      if (powerCheckBox.Checked) {
+        dozvoljeneOperacije.Append("^");
+      }
+      return dozvoljeneOperacije.ToString();
+    }
+
+    private string GetNizIgara() {
+      StringBuilder dozvoljeneOperacije = new StringBuilder("");
+      for(int i = 0; i < brojIgaraNumUpDown.Value; i++) {
+        if (brojkaRadioButton[i].Checked) {
+          dozvoljeneOperacije.Append("B");
+        }
+        else {
+          dozvoljeneOperacije.Append("S");
+        }
+      }
+      return dozvoljeneOperacije.ToString();
     }
   }
 }
