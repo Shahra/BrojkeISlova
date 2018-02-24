@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BrojkeView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BrojkeView.Designer.cs">
+      <DependentUpon>BrojkeView.cs</DependentUpon>
+    </Compile>
     <Compile Include="SettingsView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BrojkeView.resx">
+      <DependentUpon>BrojkeView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainMenuView.resx">
       <DependentUpon>MainMenuView.cs</DependentUpon>
     </EmbeddedResource>
