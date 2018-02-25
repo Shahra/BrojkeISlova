@@ -15,6 +15,7 @@ namespace BrojkeISlova {
     Random random = new Random();
     TextBox[] brojke = new TextBox[15];
     String[] moguceBrojke = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "25", "35", "50", "75" };
+    List<string> dopusteniBrojevi = new List<string>();
     int trenutnaBrojka = -1;
     int offset = 2;
     //int[] brojPojavljivanjaZadanihSlova = new int[30];
@@ -110,19 +111,48 @@ namespace BrojkeISlova {
 
     private void stopButton_Click(object sender, EventArgs e) {
       ++trenutnaBrojka;
+      if(trenutnaBrojka - 1 >= 0 && trenutnaBrojka - 1 < brojBrojki) {
+        dopusteniBrojevi.Add(brojke[trenutnaBrojka - 1].Text);
+      }
     }
 
     private void Kraj() {
+      string postfixExpression = UtilityFunctions.Calculator.InfixToPostfix(rjesenjeTextBox.Text);
+      StringBuilder currNumber = new StringBuilder();
+      List<string> uneseniBrojevi = new List<string>();
+      for (int i = 0; i < postfixExpression.Length; i++) {
+        if (UtilityFunctions.Calculator.IsNumber(postfixExpression[i])) {
+          while (UtilityFunctions.Calculator.IsNumber(postfixExpression[i])) {
+            currNumber.Append(postfixExpression[i]);
+            ++i;
+            if (i >= postfixExpression.Length) {
+              break;
+            }
+          }
+          uneseniBrojevi.Add(currNumber.ToString());
+          currNumber.Clear();
+          --i;
+        }
+      }
       timer.Enabled = false;
       remainingTimeProgressBar.Value = 0;
-      string playerSolution = UtilityFunctions.Calculator.CalculateInfixExpression(rjesenjeTextBox.Text);
-      if (playerSolution != "greska") {
-        MessageBox.Show("Vaše rješenje: " + playerSolution + "\n" + "Najbolje rješenje: " + "placeholder");
+      string playerSolution;
+      if (rjesenjeTextBox.Text.Equals("")) {
+        playerSolution = "greska";
       }
-      else {
+      else { 
+        playerSolution = UtilityFunctions.Calculator.CalculateInfixExpression(rjesenjeTextBox.Text);
+      } 
+      if (!IsSubset(uneseniBrojevi, dopusteniBrojevi) ) {
         MessageBox.Show("Neispravan unos.\n" + "Najbolje rješenje: " + "placeholder");
       }
-      this.Close();
+      else if (playerSolution.Equals("greska")) {
+        MessageBox.Show("Neispravan unos.\n" + "Najbolje rješenje: " + "placeholder");
+      }
+      else {
+        MessageBox.Show("Vaše rješenje: " + playerSolution + "\n" + "Najbolje rješenje: " + "placeholder");
+      }
+      Close();
     }
 
     private void gotovButton_Click(object sender, EventArgs e) {
@@ -139,6 +169,32 @@ namespace BrojkeISlova {
       if (!s.Contains(lastLetter)) {
         rjesenjeTextBox.Text = rjesenjeTextBox.Text.Replace(lastLetter.ToString(), "");
       }
+    }
+
+    private bool IsSubset(List<string> a1, List<string> a2) {
+      int i = 0;
+      int j = -1;
+      int k;
+      a1.Sort();
+      a2.Sort();
+      if (a1.Count == 0) {
+        return true;
+      }
+      if (a1.Count > a2.Count) {
+        return false;
+      }
+      for (i = 0; i < a1.Count; i++) {
+        for(k = j + 1; k < a2.Count; k++) {
+          if (a1[i].Equals(a2[k])) {
+            j = k;
+            break;
+          }
+        }
+        if(k == a2.Count) {
+          return false;
+        }
+      }
+      return true;
     }
   }
 }

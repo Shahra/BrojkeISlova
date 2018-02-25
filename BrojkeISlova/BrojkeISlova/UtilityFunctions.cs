@@ -104,16 +104,19 @@ namespace BrojkeISlova {
               }
             }
             else if (infixExpression[i] == '^') {
+              while (s.Count != 0 && s.Peek() == '^'){
+                postfixExpression.Append(s.Pop());
+              }
               s.Push('^');
             }
             else if (infixExpression[i] == '*' || infixExpression[i] == '/') {
-              while (s.Count != 0 && s.Peek() == '^') {
+              while (s.Count != 0 && (s.Peek() == '^' || s.Peek() == '*' || s.Peek() == '/')) {
                 postfixExpression.Append(s.Pop());
               }
               s.Push(infixExpression[i]);
             }
             else if (infixExpression[i] == '+' || infixExpression[i] == '-') {
-              while (s.Count != 0 && (s.Peek() == '^' || s.Peek() == '*' || s.Peek() == '/')) {
+              while (s.Count != 0 && (s.Peek() == '^' || s.Peek() == '*' || s.Peek() == '/' || s.Peek() == '+' || s.Peek() == '-')) {
                 postfixExpression.Append(s.Pop());
               }
               s.Push(infixExpression[i]);
