@@ -62,5 +62,12 @@ namespace BrojkeISlova {
       pb.Width = (int)(size.Width * width);
       pb.Height = (int)(size.Height * height);
     }
+
+    public static void TextBoxSetCursorPositionEnd(TextBox t) {
+      int endPosition = t.Text.Length;
+      if (endPosition >= 0) {
+        t.SelectionStart = t.Text.Length;
+      }
+    }
   }
 }

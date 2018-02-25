@@ -99,10 +99,10 @@ namespace BrojkeISlova {
       if (IsWordPossible(rjesenjeTextBox.Text)) {
         MessageBox.Show("Vaše rješenje: " + rjesenjeTextBox.Text + "\n" + "Najbolje rješenje: " + "placeholder");
       }
-      if (!IsWordPossible(rjesenjeTextBox.Text)) {
+      else {
         MessageBox.Show("Vaša riječ je neispravna budući da ste koristili nedopuštena slova.\n" + "Najbolje rješenje: " + "placeholder");
       }
-      this.Close();
+      Close();
     }
 
     private void stopButton_Click(object sender, EventArgs e) {
@@ -138,6 +138,9 @@ namespace BrojkeISlova {
         }
       }
       for (int i = 0; i < s.Length; i++) {
+        if(s[i] == ' ') {
+          continue;
+        }
         brojPojavljivanjaSlovaRijeci[SlovoGetIndex(s[i].ToString())] += 1;
       }
       brojPojavljivanjaSlovaRijeci[SlovoGetIndex("d")] -= brojPojavljivanjaSlovaRijeci[SlovoGetIndex("dž")];
@@ -162,6 +165,12 @@ namespace BrojkeISlova {
         }
       }
       return -1;
+    }
+
+    private void rjesenjeTextBox_TextChanged(object sender, EventArgs e) {
+      
+      UtilityFunctions.TextBoxSetCursorPositionEnd(rjesenjeTextBox);
+      rjesenjeTextBox.Text = rjesenjeTextBox.Text.Replace(" ", "");
     }
   }
 }

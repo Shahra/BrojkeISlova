@@ -259,6 +259,7 @@
       this.Controls.Add(this.multiplyCheckBox);
       this.Controls.Add(this.minusCheckBox);
       this.Controls.Add(this.plusCheckBox);
+      this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
       this.Name = "SettingsView";
       this.Text = "SettingsView";
       this.Load += new System.EventHandler(this.SettingsView_Load);
