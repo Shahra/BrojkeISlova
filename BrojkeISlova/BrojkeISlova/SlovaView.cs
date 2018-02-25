@@ -13,7 +13,7 @@ namespace BrojkeISlova {
     int brojSlova;
     Random random = new Random();
     TextBox[] slova = new TextBox[15];
-    String[] mogucaSlova = { "a", "b", "c", "č", "ć", "d", "đ", "dž", "e", "f", "g", "h", "i", "j", "k", "l", "lj", "m", "n", "nj", "o", "p", "r", "s", "š", "t", "u", "v", "z", "ž" };
+    String[] mogucaSlova = { "a", "b", "c", "č", "ć", "d", "dž", "đ", "e", "f", "g", "h", "i", "j", "k", "l", "lj", "m", "n", "nj", "o", "p", "r", "s", "š", "t", "u", "v", "z", "ž" };
     int[] brojPojavljivanjaZadanihSlova = new int[30];
     int trenutnoSlovo = 0;
     int offset = 2;
@@ -97,11 +97,35 @@ namespace BrojkeISlova {
     private void Kraj() {
       timer.Enabled = false;
       remainingTimeProgressBar.Value = 0;
+
+      AppData db = new AppData();
+      AppDataTableAdapters.RjecnikTableAdapter rjecnik = new AppDataTableAdapters.RjecnikTableAdapter();
+      rjecnik.Fill(db.Rjecnik);
+
+      int[] kod = new int[30];
+
+      for (int i=0; i < brojSlova; ++i)
+      {
+            ++kod[SlovoGetIndex(slova[i].Text)];
+      }
+
+      var foundRows = rjecnik.GetDataCandidate(kod[0], kod[1], kod[2], kod[3], kod[4], kod[5], kod[6], kod[7], kod[8], kod[9],
+            kod[10], kod[11], kod[12], kod[13], kod[14], kod[15], kod[16], kod[17], kod[18], kod[19],
+            kod[20], kod[21], kod[22], kod[23], kod[24], kod[25], kod[26], kod[27], kod[28], kod[29]
+            );
+
+
+      String najboljeRjesenje = slova[0].Text;
+      if(foundRows.Count() != 0)
+      {
+            najboljeRjesenje = foundRows[0].riječ;
+      }
+
       if (IsWordPossible(rjesenjeTextBox.Text)) {
-        MessageBox.Show("Vaše rješenje: " + rjesenjeTextBox.Text + "\n" + "Najbolje rješenje: " + "placeholder");
+        MessageBox.Show("Vaše rješenje: " + rjesenjeTextBox.Text + "\n" + "Najbolje rješenje: " + najboljeRjesenje);
       }
       else {
-        MessageBox.Show("Vaša riječ je neispravna budući da ste koristili nedopuštena slova.\n" + "Najbolje rješenje: " + "placeholder");
+        MessageBox.Show("Vaša riječ je neispravna budući da ste koristili nedopuštena slova.\n" + "Najbolje rješenje: " + najboljeRjesenje);
       }
       Close();
     }
