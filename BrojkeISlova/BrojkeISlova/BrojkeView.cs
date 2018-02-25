@@ -115,8 +115,9 @@ namespace BrojkeISlova {
     private void Kraj() {
       timer.Enabled = false;
       remainingTimeProgressBar.Value = 0;
-      if (true) {
-        MessageBox.Show("Vaše rješenje: " + rjesenjeTextBox.Text + "\n" + "Najbolje rješenje: " + "placeholder");
+      string playerSolution = UtilityFunctions.Calculator.CalculateInfixExpression(rjesenjeTextBox.Text);
+      if (playerSolution != "greska") {
+        MessageBox.Show("Vaše rješenje: " + playerSolution + "\n" + "Najbolje rješenje: " + "placeholder");
       }
       else {
         MessageBox.Show("Neispravan unos.\n" + "Najbolje rješenje: " + "placeholder");

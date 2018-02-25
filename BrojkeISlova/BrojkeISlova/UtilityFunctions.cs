@@ -126,7 +126,7 @@ namespace BrojkeISlova {
 
         return postfixExpression.ToString();
       }
-      static double CalculatePostfixExpression(String postfixExpression) {
+      static string CalculatePostfixExpression(String postfixExpression) {
         /*
         1) Create a stack to store operands(or values).
         2) Scan the given expression and do following for every scanned element.
@@ -142,6 +142,9 @@ namespace BrojkeISlova {
             while (IsNumber(postfixExpression[i])) {
               currNumber.Append(postfixExpression[i]);
               ++i;
+              if(i >= postfixExpression.Length) {
+                break;
+              }
             }
             s.Push(Convert.ToDouble(currNumber.ToString()));
             currNumber.Clear();
@@ -149,32 +152,56 @@ namespace BrojkeISlova {
           }
           else {
             if (postfixExpression[i] == '^') {
+              if (s.Count() == 0)
+                return "greska";
               a = s.Pop();
+              if (s.Count() == 0)
+                return "greska";
               b = s.Pop();
               s.Push(Math.Pow(b, a));
             }
             else if (postfixExpression[i] == '*') {
-              s.Push(s.Pop() * s.Pop());
+              if (s.Count() == 0)
+                return "greska";
+              a = s.Pop();
+              if (s.Count() == 0)
+                return "greska";
+              b = s.Pop();
+              s.Push(a * b);
             }
             else if (postfixExpression[i] == '/') {
+              if (s.Count() == 0)
+                return "greska";
               a = s.Pop();
+              if (s.Count() == 0)
+                return "greska";
               b = s.Pop();
               s.Push(b / a);
             }
             else if (postfixExpression[i] == '+') {
-              s.Push(s.Pop() + s.Pop());
+              if (s.Count() == 0)
+                return "greska";
+              a = s.Pop();
+              if (s.Count() == 0)
+                return "greska";
+              b = s.Pop();
+              s.Push(a + b);
             }
             else if (postfixExpression[i] == '-') {
+              if (s.Count() == 0)
+                return "greska";
               a = s.Pop();
+              if (s.Count() == 0)
+                return "greska";
               b = s.Pop();
               s.Push(b - a);
             }
           }
         }
 
-        return s.Pop();
+        return s.Pop().ToString();
       }
-      public static double CalculateInfixExpression(String infixExpression) {
+      public static string CalculateInfixExpression(String infixExpression) {
         String postfixExpression = InfixToPostfix(infixExpression);
         return CalculatePostfixExpression(postfixExpression);
       }
