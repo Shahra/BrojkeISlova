@@ -167,8 +167,7 @@ namespace BrojkeISlova {
       return -1;
     }
 
-    private void rjesenjeTextBox_TextChanged(object sender, EventArgs e) {
-      
+    private void rjesenjeTextBox_TextChanged(object sender, EventArgs e) {      
       UtilityFunctions.TextBoxSetCursorPositionEnd(rjesenjeTextBox);
       rjesenjeTextBox.Text = rjesenjeTextBox.Text.Replace(" ", "");
     }

@@ -128,5 +128,17 @@ namespace BrojkeISlova {
     private void gotovButton_Click(object sender, EventArgs e) {
       Kraj();
     }
+
+    private void rjesenjeTextBox_TextChanged(object sender, EventArgs e) {
+      if(rjesenjeTextBox.Text.Length == 0) {
+        return;
+      }
+      char lastLetter = rjesenjeTextBox.Text[rjesenjeTextBox.Text.Length - 1];
+      String s = dopusteneOperacije + "0123456789() ";
+      UtilityFunctions.TextBoxSetCursorPositionEnd(rjesenjeTextBox);
+      if (!s.Contains(lastLetter)) {
+        rjesenjeTextBox.Text = rjesenjeTextBox.Text.Replace(lastLetter.ToString(), "");
+      }
+    }
   }
 }
