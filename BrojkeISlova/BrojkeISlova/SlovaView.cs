@@ -167,9 +167,16 @@ namespace BrojkeISlova {
       return -1;
     }
 
-    private void rjesenjeTextBox_TextChanged(object sender, EventArgs e) {      
+    private void rjesenjeTextBox_TextChanged(object sender, EventArgs e) {
+      if (rjesenjeTextBox.Text.Length == 0) {
+        return;
+      }
+      char lastLetter = rjesenjeTextBox.Text[rjesenjeTextBox.Text.Length - 1];
+      String s = "abcčćdđefghijklmnopqrsštuvwxyzžABCČĆDĐEFGHIJKLMNOPRSŠTUVWXYZŽ";
       UtilityFunctions.TextBoxSetCursorPositionEnd(rjesenjeTextBox);
-      rjesenjeTextBox.Text = rjesenjeTextBox.Text.Replace(" ", "");
+      if (!s.Contains(lastLetter)) {
+        rjesenjeTextBox.Text = rjesenjeTextBox.Text.Replace(lastLetter.ToString(), "");
+      }
     }
   }
 }
