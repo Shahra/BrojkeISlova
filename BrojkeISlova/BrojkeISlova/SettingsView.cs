@@ -49,7 +49,7 @@ namespace BrojkeISlova {
       if (dozvoljeneOperacije.Contains("^")) {
         powerCheckBox.Checked = true;
       }
-      InitializeRadioGroup(0);
+      RefreshRadioGroups();
       ResizeOdustaniButton();
       ResizeSpremiButton();
     }
@@ -156,6 +156,10 @@ namespace BrojkeISlova {
         }
       }
       return dozvoljeneOperacije.ToString();
+    }
+
+    private void RefreshRadioGroups() {
+      brojIgaraNumUpDown_ValueChanged(new object(), new EventArgs());
     }
   }
 }

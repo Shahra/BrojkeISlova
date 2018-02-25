@@ -220,7 +220,7 @@
       // 
       // odustaniButton
       // 
-      this.odustaniButton.Location = new System.Drawing.Point(407, 485);
+      this.odustaniButton.Location = new System.Drawing.Point(267, 345);
       this.odustaniButton.Name = "odustaniButton";
       this.odustaniButton.Size = new System.Drawing.Size(75, 23);
       this.odustaniButton.TabIndex = 3;
@@ -230,7 +230,7 @@
       // 
       // SpremiButton
       // 
-      this.SpremiButton.Location = new System.Drawing.Point(516, 485);
+      this.SpremiButton.Location = new System.Drawing.Point(376, 345);
       this.SpremiButton.Name = "SpremiButton";
       this.SpremiButton.Size = new System.Drawing.Size(75, 23);
       this.SpremiButton.TabIndex = 3;
@@ -242,7 +242,7 @@
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(646, 561);
+      this.ClientSize = new System.Drawing.Size(493, 424);
       this.Controls.Add(this.SpremiButton);
       this.Controls.Add(this.odustaniButton);
       this.Controls.Add(this.brojIgaraNumUpDown);
