@@ -69,5 +69,115 @@ namespace BrojkeISlova {
         t.SelectionStart = t.Text.Length;
       }
     }
+    public class Calculator {
+      public static string RemoveWhitespace(string input) {
+        return new string(input.ToCharArray().Where(c => !Char.IsWhiteSpace(c)).ToArray());
+      }
+      public static bool IsNumber(char c) {
+        if (c >= '0' && c <= '9') {
+          return true;
+        }
+        return false;
+      }
+      public static String InfixToPostfix(String infixExpression) {
+        Stack<char> s = new Stack<char>();
+        infixExpression = RemoveWhitespace(infixExpression);
+
+        StringBuilder postfixExpression = new StringBuilder();
+        for (int i = 0; i < infixExpression.Length; i++) {
+          if (IsNumber(infixExpression[i])) {
+            postfixExpression.Append(infixExpression[i]);
+          }
+          else {
+            postfixExpression.Append(' ');
+            if (s.Count == 0) {
+              s.Push(infixExpression[i]);
+            }
+            else if (infixExpression[i] == '(') {
+              s.Push('(');
+            }
+            else if (infixExpression[i] == ')') {
+              char g = s.Pop();
+              while (g != '(') {
+                postfixExpression.Append(g);
+                g = s.Pop();
+              }
+            }
+            else if (infixExpression[i] == '^') {
+              s.Push('^');
+            }
+            else if (infixExpression[i] == '*' || infixExpression[i] == '/') {
+              while (s.Count != 0 && s.Peek() == '^') {
+                postfixExpression.Append(s.Pop());
+              }
+              s.Push(infixExpression[i]);
+            }
+            else if (infixExpression[i] == '+' || infixExpression[i] == '-') {
+              while (s.Count != 0 && (s.Peek() == '^' || s.Peek() == '*' || s.Peek() == '/')) {
+                postfixExpression.Append(s.Pop());
+              }
+              s.Push(infixExpression[i]);
+            }
+          }
+        }
+        while (s.Count != 0) {
+          postfixExpression.Append(s.Pop());
+        }
+
+        return postfixExpression.ToString();
+      }
+      static double CalculatePostfixExpression(String postfixExpression) {
+        /*
+        1) Create a stack to store operands(or values).
+        2) Scan the given expression and do following for every scanned element.
+        …..a) If the element is a number, push it into the stack
+          …..b) If the element is a operator, pop operands for the operator from stack.Evaluate the operator and push the result back to the stack
+              3) When the expression is ended, the number in the stack is the final answer*/
+        Stack<double> s = new Stack<double>();
+        StringBuilder currNumber = new StringBuilder();
+        double a, b;
+
+        for (int i = 0; i < postfixExpression.Length; i++) {
+          if (IsNumber(postfixExpression[i])) {
+            while (IsNumber(postfixExpression[i])) {
+              currNumber.Append(postfixExpression[i]);
+              ++i;
+            }
+            s.Push(Convert.ToDouble(currNumber.ToString()));
+            currNumber.Clear();
+            --i;
+          }
+          else {
+            if (postfixExpression[i] == '^') {
+              a = s.Pop();
+              b = s.Pop();
+              s.Push(Math.Pow(b, a));
+            }
+            else if (postfixExpression[i] == '*') {
+              s.Push(s.Pop() * s.Pop());
+            }
+            else if (postfixExpression[i] == '/') {
+              a = s.Pop();
+              b = s.Pop();
+              s.Push(b / a);
+            }
+            else if (postfixExpression[i] == '+') {
+              s.Push(s.Pop() + s.Pop());
+            }
+            else if (postfixExpression[i] == '-') {
+              a = s.Pop();
+              b = s.Pop();
+              s.Push(b - a);
+            }
+          }
+        }
+
+        return s.Pop();
+      }
+      public static double CalculateInfixExpression(String infixExpression) {
+        String postfixExpression = InfixToPostfix(infixExpression);
+        return CalculatePostfixExpression(postfixExpression);
+      }
+    }
   }
 }
