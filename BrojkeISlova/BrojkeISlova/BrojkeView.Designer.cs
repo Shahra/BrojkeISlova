@@ -85,6 +85,7 @@
       this.trazeniBrojTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
       this.trazeniBrojTextBox.Location = new System.Drawing.Point(425, 71);
       this.trazeniBrojTextBox.Name = "trazeniBrojTextBox";
+      this.trazeniBrojTextBox.ReadOnly = true;
       this.trazeniBrojTextBox.Size = new System.Drawing.Size(236, 62);
       this.trazeniBrojTextBox.TabIndex = 10;
       this.trazeniBrojTextBox.Text = "1000";

@@ -28,6 +28,7 @@ namespace BrojkeISlova {
       for (int i = 0; i < brojSlova; i++) {
         slova[i] = new TextBox();
         slova[i].TextAlign = HorizontalAlignment.Center;
+        slova[i].ReadOnly = true;
         Controls.Add(slova[i]);
       }
       ResizeSlova();

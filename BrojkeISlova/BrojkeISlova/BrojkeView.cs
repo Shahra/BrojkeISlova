@@ -31,6 +31,7 @@ namespace BrojkeISlova {
       for (int i = 0; i < brojBrojki; i++) {
         brojke[i] = new TextBox();
         brojke[i].TextAlign = HorizontalAlignment.Center;
+        brojke[i].ReadOnly = true;
         Controls.Add(brojke[i]);
       }
       ResizeBrojki();
